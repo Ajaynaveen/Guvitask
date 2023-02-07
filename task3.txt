@@ -1,0 +1,257 @@
+How to iterate json using different methods 
+
+1)for in 
+Const res=JSON.parse(xhr.responseText)
+for(const key in res){
+if(obj.hasownProperty(key)){
+console.log(`${key}:${res[key]}`)
+}
+}
+
+
+2)foreach
+Object.entries(res).forEach((entry)=>{
+const[key,value]=entry;
+console.log(`${key}:${value}`}
+})
+
+
+
+2nd question
+
+
+Let  myresume={
+
+
+
+
+   "basics": {
+
+
+
+
+
+
+     "name": “Ajay Shanmugam",
+
+
+     "email": "ajay.s.naviee@gmail.com",
+
+
+     "phone": 9655347688,
+
+
+     "degree": "B.E",
+
+
+     "location": {
+
+
+       "address": "152/9 kovilpalayam L.m palapalayam(po)",
+
+
+       "postalCode": 638455,
+
+
+       "city": "Erode",
+
+
+       "state": "Tamilnadu",
+
+
+       "country": "India"
+
+
+     },
+
+
+     "profiles": [
+
+
+       {
+
+
+         "website": "https://www.linkedin.com/in/ajay-shanmugam-256342223/",
+
+
+         "github":”https://github.com/Ajaynaveen/"
+
+
+       }
+
+
+     ]
+
+
+   },
+
+
+   "work": [
+
+
+     {
+
+
+       "company": "postoffice",
+
+
+       "position": "postman",
+
+
+       "startDate": "4.4.2021",
+
+
+       "endDate": "20.1.2023",
+
+
+       "summary": "i am responsible for delivering letters and mails to people",
+
+
+     }
+
+
+   ],
+
+
+   "education": [
+
+
+     {
+
+
+       "institution": "BAnnari Amman institute of technology",
+
+
+       "department": "ECE",
+
+
+       "studyType": "fulltime",
+
+
+       "batch start year": 2016,
+
+
+       "batch end year": 2020,
+
+
+       "gpa": 6.5
+
+
+     }
+
+
+   ],
+
+
+   "skills": [
+
+
+     {
+
+
+       "name": "Full Stack developer",
+
+
+       "level": "beginer",
+
+
+       "project": [
+
+
+         "Random password generator  using js",
+         “Google ui interface”,
+         “React calculator”
+
+
+       ]
+
+
+     }
+
+
+   ],
+
+
+   "languages": [
+
+
+     {
+
+
+        "language": "Tamil,Enlish"
+
+
+     }
+
+
+   ],
+
+
+   "interests": [
+
+
+     {
+
+
+       "name": "programming"
+
+
+     }
+
+
+   ]
+
+
+ }
+
+
+ console.log(myResume);
+
+3.Differnce between screen window and document in js
+
+
+screen-The window.screen object contains information about the user's screen.
+
+The methods are
+
+screen.width
+screen.height
+screen.availWidth
+screen.availHeight
+screen.colorDepth
+screen.pixelDepth
+Window Since modern browsers have implemented (almost) the same methods and properties for JavaScript interactivity, it is often referred to, as methods and properties of the BOM.
+
+
+The window object is supported by all browsers. It represents the browser's window.
+All global JavaScript objects, functions, and variables automatically become members of the window object.
+Global variables are properties of the window object.
+Global functions are methods of the window object.
+Even the document object (of the HTML DOM) is a property of the window object:
+ex.Window.innerwidth,widow.innerheight
+
+
+
+
+
+
+3)document
+he document object represents your web page.
+If you want to access any element in an HTML page, you always start with accessing the document object.
+Below are some examples of how you can use the document object to access and manipulate HTML.
+
+
+example
+document.getElementById(id)
+Find an element by element id
+document.getElementsByTagName(name)
+Find elements by tag name
+document.getElementsByClassName(name)
+Find elements by class name
+
+
+
+
+
+
+
