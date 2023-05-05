@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog API Task</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container mt-3">
+    <h1 class="text-center">Dog API Task</h1>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="breed-select">Select a breed:</label>
+          <select class="form-control" id="breed-select"></select>
+        </div>
+        <button class="btn btn-primary btn-block" id="get-dog-button">Get Dog Image</button>
+      </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+      <div class="col-md-6">
+        <div class="card" style="display: none;">
+          <img class="card-img-top" id="dog-image" src="" alt="Dog Image">
+        </div>
+        <div class="alert alert-danger mt-3" id="error-message" style="display: none;"></div>
+      </div>
+    </div>
+  </div>
+ 
+</body>
+</html>
+  <script >
+    const breedSelect = document.getElementById('breed-select');
+const getDogButton = document.getElementById('get-dog-button');
+const dogImage = document.getElementById('dog-image');
+const errorMessage = document.getElementById('error-message');
+
+// Populate breed select
+fetch('https://dog.ceo/api/breeds/list/all')
+  .then(response => response.json())
+  .then(data => {
+    const breeds = Object.keys(data.message);
+    breeds.forEach(breed => {
+      const option = document.createElement('option');
+      option.text = breed;
+      breedSelect.add(option);
+    });
+    // Set last selected breed if available
+   
+  })
+  .catch(error => console.error(error));
+
+// Add event listeners
+getDogButton.addEventListener('click', getDogImage);
+
+// Functions
+function getDogImage() {
+  const breedName = breedSelect.value;
+  const apiUrl = `https://dog.ceo/api/breed/${breedName}/images/random`;
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'success') {
+        dogImage.src = data.message;
+        dogImage.alt = `${breedName} Image`;
+        dogImage.parentElement.style.display = 'block';
+        errorMessage.style.display = 'none';
+        // Store last selected breed
+        
+      } else {
+        console.log(data);
+        dogImage.parentElement.style.display = 'none';
+        errorMessage.textContent = `Could not fetch image for ${breedName}.`;
+        errorMessage.style.display = 'block';
+      }
+    })
+    .catch(error => console.error(error));
+}
+
+  </script>
+</body>
+</html>

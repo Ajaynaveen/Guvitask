@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Countdown to Independence Day</title>
+  </head>
+  <body>
+    <h1>Countdown to Independence Day</h1>
+    <div id="countdown"></div>
+    <div id="message"></div>
+    <script>
+      // Define the callback functions
+      function countdown(number, callback) {
+        setTimeout(function() {
+          document.getElementById("countdown").innerHTML = number;
+          callback();
+        }, 1000);
+      }
+
+      function happyIndependenceDay() {
+        document.getElementById("countdown").innerHTML = "";
+        document.getElementById("message").innerHTML = "Happy Independence Day!";
+      }
+
+      // Call the functions in callback hell
+      countdown(10, function() {
+        countdown(9, function() {
+          countdown(8, function() {
+            countdown(7, function() {
+              countdown(6, function() {
+                countdown(5, function() {
+                  countdown(4, function() {
+                    countdown(3, function() {
+                      countdown(2, function() {
+                        countdown(1, happyIndependenceDay);
+                      });
+                    });
+                  });
+                });
+              });
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
